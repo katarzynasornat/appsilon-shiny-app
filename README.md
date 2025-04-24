@@ -140,7 +140,7 @@ The following edge cases are considered and tested:
 
 ## Potential improvements and features
 
-Put here what nice could be added and what were issues improved like changing partitioning for more efficient to have data uniformly distributed
+Put here what nice could be added and what were issues improved like changing partitioning for more efficient to have data uniformly distributed. Also I made filtering using one OR second column but maybe from the task it was to use both together - if so, it may start filtering from the higher dimension and adjust dynamicaly categories from lower dimension.
 
 ---
 
