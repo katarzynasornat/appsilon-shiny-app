@@ -23,6 +23,27 @@ This Shiny application allows users to visualize species observations on a map. 
 - **Modules**: The app has been decomposed into independent Shiny modules to make the codebase modular, scalable, and maintainable.
 - **Testing**: Unit tests are included for critical functions, ensuring robustness and stability.
 - **Documentation**: The app includes comments and detailed documentation for developers to understand and extend the functionality.
+
+```plaintext
+├── app1.R                        # Main application file
+├── globals.R                      # Global variables and configurations
+├── modules/                       # Directory for Shiny modules
+│   ├── map_module.R               # Module for rendering the map
+│   ├── filter_module.R            # Module for filtering data
+│   ├── timeline_module1.R         # Module for timeline visualization
+│   └── counterUp_module.R         # Module for the counter-up widget
+├── utils/                         # Directory for utility functions
+│   ├── distance_helpers.R         # Functions for distance calculations
+│   ├── estimate_country.R         # Functions for estimating country from coordinates
+│   └── get_data.R                 # Functions for fetching and processing data
+├── styles.css                     # Custom CSS styles
+├── counterUpHandler.js            # JavaScript for counter-up functionality
+├── geoLocationHandler.js          # JavaScript for geolocation
+├── infoButtonHandler.js           # JavaScript for info button interactions
+└── data/                          # Directory for application data
+    └── species_data.parquet       # Example data file (replace with actual data)
+```
+
   
 ## Installation & Setup
 
