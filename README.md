@@ -152,6 +152,8 @@ Unfortunately I did not finish this part, but I think I would manage to cover it
 9. Tabs are not functional now, I just left them in case of improving the app - which I will do, really liked the task.
 10. ModalDialog is implemented but for some reason it is not working that is why I put welcome box within the app.
 11. CI/CD pipeline for deploying to staging when commited and to prod when approved (together with docker image creating, pushing to Azure Container Registry and app refreshing).
+12. Adding user autentication
+13. Logs capturing
 
 ---
 
