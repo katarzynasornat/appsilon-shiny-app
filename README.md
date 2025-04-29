@@ -117,7 +117,7 @@ When a species is selected, a timeline of its observations is rendered using `hi
 
 To ensure the app is scalable and performs well even with large datasets:
 
-- **Pre-caching data**: Data from GBIF is pre-cached and stored in the app's environment to avoid repeated queries to the external database.
+- **Pre-caching data**: Data from GBIF is pre-cached and stored in the app's container environment to avoid repeated queries to the external database.
 - **Efficient querying**: We use **DuckDB** to query the large GBIF dataset. DuckDB is optimized for reading and querying partitioned Parquet files, making it highly efficient for this task.
 - **Data partitioning**: Data is partitioned either `scientificName` first letter or `vernacularName` first letter, reducing the number of records loaded into memory at any given time.
 
