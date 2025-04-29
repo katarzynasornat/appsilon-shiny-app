@@ -113,6 +113,12 @@ Once a species is selected, its observed locations in Poland are shown on the ma
 ### **3. Timeline Visualization**
 When a species is selected, a timeline of its observations is rendered using `highcharter`. The timeline is interactive, allowing users to zoom in and out to explore trends over time.
 
+### **4. The closest spieces according user location**
+When user allows to follow location and refreshes the page, will see the spieces which he could have observed based on geo coordinates.
+
+### **5. Fun facts about filtered spieces*
+Using ChatGPT API to get 3 fun facts for each search to make filtering more funny and educative.
+
 ## Performance Optimization
 
 To ensure the app is scalable and performs well even with large datasets:
