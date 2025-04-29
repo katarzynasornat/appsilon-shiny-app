@@ -148,6 +148,7 @@ Unfortunately I did not finish this part, but I think I would manage to cover it
 5. Some reactive values do not work as they supposed to be - especially when generating data - some stuff update automatically, some after clicking - my mistake and should be reviewed carefully.
 6. Some observation had more pictures, if I had more time I would have implemented the carousel window instead just picking the first image to give a user to chance to see all pictures as well as the author of the image.
 7. In general, map should be optimized, either with `leafletProxy` or initially putting some clusters instead of just marking points separately.
+8. I would tweak more the colors and UI part with more uniform colors etc.
 
 ---
 
