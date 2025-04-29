@@ -2,13 +2,15 @@
 
 This Shiny application allows users to visualize species observations on a map. The app utilizes data from the **Global Biodiversity Information Facility (GBIF)** and allows users to search for species by vernacular and scientific names, view the species’ observations on the map, and analyze the timeline of their observations. The app is optimized for performance, usability, and scalability.
 
+[Here](https://spex-appsilon-app.azurewebsites.net/). one can find deployed version on Azure. 
+
 ## Features
 
 - **Species Search**: Users can search for species by their vernacular name or scientific name. The search is powered by auto-suggestions and returns matching results when the user starts typing.
 - **Map Visualization**: Once a species is selected, its observation locations are displayed on an interactive map using `leaflet`. The complete data for the whole world have been used.
 - **Timeline Visualization**: Users can view the timeline of selected species' observations.
 - **Aggregating dropdown for timeline**: Additional feature to aggregate counts per day/month/year.
-- **Default View**: The app displays a relevant default view when no species is selected yet, showing an overview of dataset as well as suggesting some species user may observe locally
+- **Default View**: The app displays a relevant default view when no species is selected yet, showing the closest spieces, the user can observe based on geo coordinates.
 - **Display of the image and fun facts for chosen spieces**: Once a spieces is selected, an image is presented as well as 3 top fun facts.
 
 ## Additional Features (Optional)
@@ -22,26 +24,14 @@ This Shiny application allows users to visualize species observations on a map. 
 
 - **Modules**: The app has been decomposed into independent Shiny modules to make the codebase modular, scalable, and maintainable.
 - **Testing**: Unit tests are included for critical functions, ensuring robustness and stability.
-- **Documentation**: The app includes comments and detailed documentation for developers to understand and extend the functionality.
+- **Documentation**: The app includes comments and detailed documentation for developers to understand and extend the functionality. High level directories are
 
 ```plaintext
-├── app1.R                        # Main application file
+├── app1.R                         # Main application file
 ├── globals.R                      # Global variables and configurations
 ├── modules/                       # Directory for Shiny modules
-│   ├── map_module.R               # Module for rendering the map
-│   ├── filter_module.R            # Module for filtering data
-│   ├── timeline_module1.R         # Module for timeline visualization
-│   └── counterUp_module.R         # Module for the counter-up widget
 ├── utils/                         # Directory for utility functions
-│   ├── distance_helpers.R         # Functions for distance calculations
-│   ├── estimate_country.R         # Functions for estimating country from coordinates
-│   └── get_data.R                 # Functions for fetching and processing data
-├── styles.css                     # Custom CSS styles
-├── counterUpHandler.js            # JavaScript for counter-up functionality
-├── geoLocationHandler.js          # JavaScript for geolocation
-├── infoButtonHandler.js           # JavaScript for info button interactions
-└── data/                          # Directory for application data
-    └── species_data.parquet       # Example data file (replace with actual data)
+├── www/                           # Custom CSS styles and JS Handlers
 ```
 
   
@@ -108,9 +98,9 @@ To deploy the dockerized app on Azure please follow the steps below:
 3. **Deploy to Azure App Services**:
    Follow the instructions from Azure's documentation to deploy the Docker image to Azure App Services.
 
-#### Ready-to-use application deployed on Azure (TODO add final website address here and in the main description).
+#### Ready-to-use application deployed on Azure.
 
-To take a benefit that all steps above have been made already one are welcome to test the app here[].
+To take a benefit that all steps above have been made already one are welcome to test the app [here](https://spex-appsilon-app.azurewebsites.net/).
 
 ## Functionality Overview
 
@@ -118,7 +108,7 @@ To take a benefit that all steps above have been made already one are welcome to
 The search bar allows users to search by **vernacular name** or **scientific name**. The app queries a local DuckDB database (pre-loaded with species data from GBIF), ensuring fast and efficient searching. Results are displayed dynamically as the user types.
 
 ### **2. Map Visualization**
-Once a species is selected, its observed locations in Poland are shown on the map using `leaflet`. Points are clustered for better performance when many observations are present. The map can be zoomed and panned for detailed exploration.
+Once a species is selected, its observed locations in Poland are shown on the map using `leaflet`. The map can be zoomed and panned for detailed exploration.
 
 ### **3. Timeline Visualization**
 When a species is selected, a timeline of its observations is rendered using `highcharter`. The timeline is interactive, allowing users to zoom in and out to explore trends over time.
@@ -129,7 +119,7 @@ To ensure the app is scalable and performs well even with large datasets:
 
 - **Pre-caching data**: Data from GBIF is pre-cached and stored in the app's environment to avoid repeated queries to the external database.
 - **Efficient querying**: We use **DuckDB** to query the large GBIF dataset. DuckDB is optimized for reading and querying partitioned Parquet files, making it highly efficient for this task.
-- **Data partitioning**: Data is partitioned by **species** and **observation year**, reducing the number of records loaded into memory at any given time.
+- **Data partitioning**: Data is partitioned either `scientificName` first letter or `vernacularName` first letter, reducing the number of records loaded into memory at any given time.
 
 ## Testing
 
@@ -145,11 +135,19 @@ Unfortunately I did not finish this part, but I think I would manage to cover it
 - **DuckDB**: For fast querying and in-memory data handling.
 - **Azure Blob Storage**: For storing the large dataset, ensuring it can be accessed efficiently by the app.
 - **CSS/Tailwind**: For styling the dashboard and improving the visual appearance.
-- **Javascript**
+- **Javascript**: For popups, custom handlers like CountUp.
 
-## Potential improvements and features
+## Potential improvements
 
-Put here what nice could be added and what were issues improved like changing partitioning for more efficient to have data uniformly distributed. Also I made filtering using one OR second column but maybe from the task it was to use both together - if so, it may start filtering from the higher dimension and adjust dynamicaly categories from lower dimension.
+1. On the landing page, where user can find the closes spieces, if location allowed, even though observation changes, the picture url is the same - fixed. Definitely to improve when time allows.
+2. Using first letter for paritioning causes two issues:
+   + some partitions are bigger, not equally distributed, and this should be improved - e.g searching for `number_LADY BIRD` takes longer because partition is big.
+   + some partitions have mixed stuff, because of punctation marks & digits as first signs in the name. This should be cleaned.
+3. When I read the task for the first time I discovered that maybe filters should be cascade in the sense that firstly we choose `scientificName` and then reactively `vernacularName`. That logic also could be implemented depending on the requirements.
+4. I mixed CSS with Tailwind - that is not so clean and clear and should be improved
+5. Some reactive values do not work as they supposed to be - especially when generating data - some stuff update automatically, some after clicking - my mistake and should be reviewed carefully.
+6. Some observation had more pictures, if I had more time I would have implemented the carousel window instead just picking the first image to give a user to chance to see all pictures as well as the author of the image.
+7. In general, map should be optimized, either with `leafletProxy` or initially putting some clusters instead of just marking points separately.
 
 ---
 
