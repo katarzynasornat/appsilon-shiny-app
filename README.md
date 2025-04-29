@@ -42,7 +42,7 @@ To get the app running locally, follow these steps:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/appsilon-hiring/appsilon-shiny-app.git
+git clone https://github.com/katarzynasornat/appsilon-shiny-app.git
 cd appsilon-shiny-app
 ```
 
