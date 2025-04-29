@@ -133,7 +133,7 @@ Unfortunately I did not finish this part, but I think I would manage to cover it
 - **Leaflet**: For interactive map visualization.
 - **Highcharter**: For rendering interactive timelines and charts.
 - **DuckDB**: For fast querying and in-memory data handling.
-- **Azure Blob Storage**: For storing the large dataset, ensuring it can be accessed efficiently by the app.
+- **Azure Blob Storage**/**Azure Container Registry**/**Azure App Services**: For storing the large dataset, ensuring it can be accessed efficiently by the app.
 - **CSS/Tailwind**: For styling the dashboard and improving the visual appearance.
 - **Javascript**: For popups, custom handlers like CountUp.
 
