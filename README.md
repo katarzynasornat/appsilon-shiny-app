@@ -135,19 +135,7 @@ To ensure the app is scalable and performs well even with large datasets:
 
 ### Unit Tests
 
-Unit tests are included for the following key features:
-
-- **Species search**: Ensures that the search function returns accurate and relevant species names.
-- **Data queries**: Validates that data queries to the DuckDB database are executed correctly and efficiently.
-- **Map rendering**: Ensures that species' observation locations are correctly visualized on the map.
-
-### Edge Cases
-
-The following edge cases are considered and tested:
-
-- Searching for species with no observations.
-- Handling of invalid or incomplete species names.
-- Map zoom levels and data clusters when no data is available.
+Unfortunately I did not finish this part, but I think I would manage to cover it within 1-2 days.
 
 ## Technology Stack
 
