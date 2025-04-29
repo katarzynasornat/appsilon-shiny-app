@@ -73,7 +73,7 @@ After installing the dependencies, run the app with the following command:
 shiny::runApp("app1.R")
 ```
 
-The app will be available at [http://0.0.0.1:8180](http://0.0.0.1:8180).
+The app will be available at [http://0.0.0.0:8180](http://0.0.0.0:8180).
 
 ### 4. Deployment (with Docker) (Optional)
 
