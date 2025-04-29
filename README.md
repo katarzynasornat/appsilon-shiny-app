@@ -149,6 +149,9 @@ Unfortunately I did not finish this part, but I think I would manage to cover it
 6. Some observation had more pictures, if I had more time I would have implemented the carousel window instead just picking the first image to give a user to chance to see all pictures as well as the author of the image.
 7. In general, map should be optimized, either with `leafletProxy` or initially putting some clusters instead of just marking points separately.
 8. I would tweak more the colors and UI part with more uniform colors etc.
+9. Tabs are not functional now, I just left them in case of improving the app - which I will do, really liked the task.
+10. ModalDialog is implemented but for some reason it is not working that is why I put welcome box within the app.
+11. CI/CD pipeline for deploying to staging when commited and to prod when approved (together with docker image creating, pushing to Azure Container Registry and app refreshing).
 
 ---
 
