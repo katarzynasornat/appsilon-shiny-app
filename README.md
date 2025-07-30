@@ -2,7 +2,11 @@
 
 This Shiny application allows users to visualize species observations on a map. The app utilizes data from the **Global Biodiversity Information Facility (GBIF)** and allows users to search for species by vernacular and scientific names, view the species’ observations on the map, and analyze the timeline of their observations. The app is optimized for performance, usability, and scalability.
 
-[Here](https://spex-appsilon-app.azurewebsites.net/). one can find deployed version on Azure. 
+[Here](https://spex-appsilon-app.azurewebsites.net/). one can find deployed version on Azure (not active anymore, below you can find a video demo of an App). 
+
+
+https://github.com/user-attachments/assets/4ccb1e8f-a1f3-4c42-8151-7eafbf570645
+
 
 ## Features
 
